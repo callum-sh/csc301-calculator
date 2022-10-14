@@ -28,5 +28,3 @@ jobs:
     - run: npm config set legacy-peer-deps true
     - run: npm --prefix ./frontend/ ci
     - run: npm run --prefix ./frontend/ build --if-present
-    - name: Deploy to Heroku
-      uses: AkhileshNS/heroku-deploy@v3.12.12
