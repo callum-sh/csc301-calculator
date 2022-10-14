@@ -1,0 +1,61 @@
+name: test, build, and deploy
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [3.10.7]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install Dependencies
+      run: |
+        python3 -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - run: python3 manage.py makemigrations
+    - run: python3 manage.py migrate
+    - name: Run Tests
+      run: |
+        python3 manage.py test
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [18.4.0]
+    
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        cache-dependency-path: "./frontend/package-lock.json"
+    - run: npm config set legacy-peer-deps true
+    - run: npm --prefix ./frontend/ ci
+    - run: npm run --prefix ./frontend/ build --if-present
+  
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "callum-josh-csc301-calc" #Must be unique in Heroku
+          heroku_email: "callum.sharrock@mail.utoronto.ca"
