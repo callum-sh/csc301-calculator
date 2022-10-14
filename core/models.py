@@ -10,7 +10,7 @@ class Items(models.Model):
 
 class Discounts(models.Model):
     type = models.CharField(max_length=60)
-    percentage = models.DecimalField(decimal_places=2, max_digits=20, default=0.00)
+    percentage = models.DecimalField(decimal_places=0, max_digits=20, default=0)
 
     def __str__(self):
         return self.name
