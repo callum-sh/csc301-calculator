@@ -101,8 +101,6 @@ function Item() {
                 deletion={DeleteItem}
             />
             )}
-
-
         </div>
 
     );

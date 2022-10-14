@@ -102,4 +102,18 @@
     cursor: pointer;
     outline: none;
   }
+
+  #div1 {
+    display: inline-flex;
+    width:50%;
+    height:100%;
+}
+#div2 {
+    display: inline-flex;
+    width:50%;
+    height:100%;
+}
   
+#reset {
+  padding: 5px;
+}

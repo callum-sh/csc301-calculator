@@ -29,10 +29,30 @@ function Footer() {
         })
     }
 
+    function resetValues() {
+        axios({
+            method: "GET",
+            url: "/reset/",
+        }).then((response) => {
+            getSum()
+        }).catch((error) => {
+            if (error.response) {
+                console.log(error.response);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+            }
+        })
+    }
+
     return (
         <footer>
-            <div>
-                <h1>Sum: ${Sum}, Tax: ${Tax}, Total: ${Total}</h1>
+            <div id="wrapper">
+                <div id="div1">
+                    <button id="reset" onClick={resetValues}>HARD RESET ON VALUES NOT ITEMS</button>
+                </div>
+                <div id="div2">
+                    <h1>Sum: ${Sum}, Tax: ${Tax}, Total: ${Total}</h1>
+                </div>
             </div>
         </footer>
     );

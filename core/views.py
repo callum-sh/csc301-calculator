@@ -119,3 +119,11 @@ def sum(request):
     if request.method == 'GET':
         print(f"sending {sum}, discount {disc}")
         return Response({"sum": round(float(sum), 2), "tax": round(sum * TAX_RATE, 2), "total": round(sum * (1 + TAX_RATE) * (1 - (0.01 * disc)), 2)})
+
+@api_view(['GET', 'POST'])
+def reset(request):
+    request.session['disc'] = 0
+    request.session['sum'] = 0
+
+    if request.method == 'GET':
+        return Response(status=status.HTTP_204_NO_CONTENT)
