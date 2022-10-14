@@ -23,6 +23,8 @@
     font-family: "McLaren", cursive;
     font-weight: 200;
   }
+
+
   
   footer {
     position: absolute;
@@ -45,7 +47,7 @@
     box-shadow: 0 2px 5px #ccc;
     align-items: center;
     padding: 10px;
-    width: 100%;
+    width: 95%;
     margin: 8px;
     float: left;
   }
@@ -116,4 +118,15 @@
   
 #reset {
   padding: 5px;
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }

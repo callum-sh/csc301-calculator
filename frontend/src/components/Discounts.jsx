@@ -82,8 +82,8 @@ function Discount() {
 
     return (
 
-        <div className=''>
-
+        <div class="column">
+            <h3>Discounts</h3>
             <form className="create-item">
                 {isExpanded && <input onChange={handleChange} type="text" text={formDiscount.type} name="type" placeholder="discount code" value={formDiscount.type} />}
                 <input onClick={DiscountShow} onChange={handleChange} type="number" name="percentage" placeholder="add percentage (%)" rows={rows} value={formDiscount.percentage} />
