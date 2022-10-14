@@ -6,7 +6,7 @@ from .serializers import ItemSerializer, DiscountSerializer
 from .models import Items, Discounts
 import datetime
 
-RESET = False
+RESET = True
 TAX_RATE = 0.13
 
 def front(request):
