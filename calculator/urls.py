@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from core.views import front, item, item_detail, example
+from core.views import front, item, sum, item_detail, example, discount, discount_detail
 
 
 
@@ -26,4 +26,7 @@ urlpatterns = [
     path("example/", example, name="example"),
     path("items/", item, name="item"),
     path("items/<int:pk>/", item_detail, name="detail"),
+    path("discounts/<int:pk>/", discount_detail, name="discountDetail"),
+    path("sum/", sum, name="sum"),
+    path("discounts/", discount, name="discount"),
 ]   
