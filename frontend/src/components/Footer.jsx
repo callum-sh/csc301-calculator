@@ -48,10 +48,11 @@ function Footer() {
         <footer>
             <div id="wrapper">
                 <div id="div1">
-                    <button id="reset" onClick={resetValues}>HARD RESET ON VALUES NOT ITEMS</button>
+                    <button onClick={resetValues}>HARD RESET ON VALUES NOT ITEMS</button>      
+                    <button onClick={getSum}>Update Checkout</button>
                 </div>
                 <div id="div2">
-                    <h1>Sum: ${Sum}, Tax: ${Tax}, Total: ${Total}</h1>
+                    <h1>Checkout Details: sum: ${Sum}, tax: ${Tax}, total: ${Total}</h1>
                 </div>
             </div>
         </footer>
