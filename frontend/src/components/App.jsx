@@ -11,7 +11,7 @@ function App() {
             <Item />
             <h3>Discounts</h3>
             <Discount />
-
+            <p>crying</p>
             <Footer />
         </div>
     );
