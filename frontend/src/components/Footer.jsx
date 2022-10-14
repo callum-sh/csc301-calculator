@@ -3,40 +3,31 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 function Footer() {
-    
+
+    useEffect(() => {
+        getSum()
+    }, [])
+
     const [Sum, setSum] = useState()
     const [Total, setTotal] = useState()
     const [Tax, setTax] = useState()
 
-    useEffect(() => {
-        
-
-        function getSum() {
-            axios({
-                method: "GET",
-                url: "/sum/",
-            }).then((response) => {
-                setSum(response.data["sum"]);
-                setTax(response.data["tax"]);
-                setTotal(response.data["total"]);
-                this.setState({
-                    sum: Sum,
-                    tax: Tax,
-                    total: Total
-                })
-            }).catch((error) => {
-                if (error.response) {
-                    console.log(error.response);
-                    console.log(error.response.status);
-                    console.log(error.response.headers);
-                }
-            })
-        }
-
-        getSum()
-    }, [])
-
-
+    function getSum() {
+        axios({
+            method: "GET",
+            url: "/sum/",
+        }).then((response) => {
+            setSum(response.data["sum"]);
+            setTax(response.data["tax"]);
+            setTotal(response.data["total"]);
+        }).catch((error) => {
+            if (error.response) {
+                console.log(error.response);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+            }
+        })
+    }
 
     return (
         <footer>
