@@ -3,11 +3,13 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 function Footer() {
+    
+    const [Sum, setSum] = useState()
+    const [Total, setTotal] = useState()
+    const [Tax, setTax] = useState()
 
     useEffect(() => {
-        const [Sum, setSum] = useState()
-        const [Total, setTotal] = useState()
-        const [Tax, setTax] = useState()
+        
 
         function getSum() {
             axios({
