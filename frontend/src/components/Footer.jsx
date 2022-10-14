@@ -4,11 +4,9 @@ import { useEffect } from "react";
 
 function Footer() {
 
-    this.state = {
-        sum: {},
-        tax: {},
-        total: {}
-    }
+    useEffect(() => {
+        getSum()
+    }, [])
 
     const [Sum, setSum] = useState()
     const [Total, setTotal] = useState()
@@ -35,10 +33,6 @@ function Footer() {
             }
         })
     }
-
-    useEffect(() => {
-        getSum()
-    }, [])
 
     return (
         <footer>
