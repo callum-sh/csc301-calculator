@@ -13,10 +13,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from pathlib import Path
 
-if os.environ.get('GITHUB_ACTIONS') != 'true': 
-    import django_heroku
-    django_heroku.settings(locals()) 
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -132,3 +128,7 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+if os.environ.get('GITHUB_ACTIONS') != 'true': 
+    import django_heroku
+    django_heroku.settings(locals()) 
