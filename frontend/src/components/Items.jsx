@@ -93,6 +93,7 @@ function Item() {
             </form>
 
             {items && items.map(item => <List
+                list={"ITEM"}
                 key={item.id}
                 id={item.id}
                 name={item.name}

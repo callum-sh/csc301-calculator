@@ -2,7 +2,7 @@ import AddIcon from "@material-ui/icons/Add";
 
 import { useState, useEffect } from "react";
 import axios from "axios";
-import DiscountList from "./DiscountList"
+import List from "./List"
 
 function Discount() {
 
@@ -92,7 +92,8 @@ function Discount() {
                 </button>}
             </form>
 
-            {discounts && discounts.map(discount => <DiscountList
+            {discounts && discounts.map(discount => <List
+                list={"DISCOUNT"}
                 key={discount.id}
                 id={discount.id}
                 type={discount.type}
