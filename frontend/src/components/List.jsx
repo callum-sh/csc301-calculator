@@ -2,7 +2,7 @@ function List(props) {
   function handleClick() {
     props.deletion(props.id)
   }
-  if (props.list == "ITEM") {
+  if (props.list === "ITEM") {
     return (
       <div className="item">
         <h1 >Name: {props.name},  Price: ${props.price} <button onClick={handleClick}>Delete</button></h1>
