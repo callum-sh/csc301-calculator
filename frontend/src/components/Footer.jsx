@@ -1,16 +1,19 @@
-import { useState, useEffect } from "react";
 import axios from "axios";
+import { useState } from "react";
+import { useEffect } from "react";
 
 function Footer() {
 
-    useEffect(() => {
-        getSum()
-    }, [])
+    this.state = {
+        sum: {},
+        tax: {},
+        total: {}
+    }
 
-    const [sum, setSum] = useState(null)
-    const [total, setTotal] = useState(null)
-    const [tax, setTax] = useState(null)
-    
+    const [Sum, setSum] = useState()
+    const [Total, setTotal] = useState()
+    const [Tax, setTax] = useState()
+
     function getSum() {
         axios({
             method: "GET",
@@ -19,7 +22,11 @@ function Footer() {
             setSum(response.data["sum"]);
             setTax(response.data["tax"]);
             setTotal(response.data["total"]);
-            console.log(sum);
+            this.setState({
+                sum: Sum,
+                tax: Tax,
+                total: Total 
+            })
         }).catch((error) => {
             if (error.response) {
                 console.log(error.response);
@@ -29,12 +36,16 @@ function Footer() {
         })
     }
 
+    useEffect(() => {
+        getSum()
+    }, [])
+
     return (
-      <footer>
-        <div>
-            <h1>Sum: ${sum}, Tax: ${tax}, Total: ${total}</h1>
-        </div>
-      </footer>
+        <footer>
+            <div>
+                <h1>Sum: ${Sum}, Tax: ${Tax}, Total: ${Total}</h1>
+            </div>
+        </footer>
     );
-  }
-  export default Footer;
+}
+export default Footer;

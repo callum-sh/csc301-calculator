@@ -2,7 +2,7 @@ import AddIcon from "@material-ui/icons/Add";
 
 import { useState, useEffect } from "react";
 import axios from "axios";
-import List from "./List"
+import List from "./List";
 
 function Item() {
 
@@ -100,6 +100,7 @@ function Item() {
                 deletion={DeleteItem}
             />
             )}
+
 
         </div>
 

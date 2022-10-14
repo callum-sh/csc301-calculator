@@ -16,7 +16,7 @@ function Discount() {
     const [rows, setRows] = useState(1)
 
     useEffect(() => {
-        getDiscounts()
+        getDiscounts();
     }, [])
 
     function DiscountShow() {
@@ -50,7 +50,7 @@ function Discount() {
             }
         })
             .then((response) => {
-                getDiscounts()
+                getDiscounts();
             })
 
         setFormDiscount(({
@@ -67,7 +67,7 @@ function Discount() {
             url: `/discounts/${id}/`,
         })
             .then((response) => {
-                getDiscounts()
+                getDiscounts();
             })
     }
 
@@ -100,7 +100,6 @@ function Discount() {
                 deletion={DeleteDiscount}
             />
             )}
-
         </div>
 
     );
