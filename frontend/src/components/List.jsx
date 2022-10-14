@@ -3,10 +3,8 @@ function List(props){
   props.deletion(props.id)
 }
   return (
-      <div className="note">
-        <h1 >  Name: {props.name} </h1>
-        <p > Price: {props.price}</p>
-        <button onClick={handleClick}>Delete</button>
+      <div className="item">
+        <h1 >Name: {props.name},  Price: {props.price} <button onClick={handleClick}>Delete</button></h1>
       </div>
   )
 }

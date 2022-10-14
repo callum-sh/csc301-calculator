@@ -86,7 +86,7 @@ function Item() {
 
             <form className="create-item">
                 {isExpanded && <input onChange={handleChange} type="text" text={formItem.name} name="name" placeholder="item name" value={formItem.name} />}
-                <input onClick={ItemShow} onChange={handleChange} type="number" name="price" placeholder="add price ($)" rows={rows} value={formItem.price} />
+                <input onClick={ItemShow} onChange={handleChange} type="number" step=".01" name="price" placeholder="add price ($)" rows={rows} value={formItem.price} />
                 {isExpanded && <button onClick={addItem}>
                     <AddIcon />
                 </button>}
