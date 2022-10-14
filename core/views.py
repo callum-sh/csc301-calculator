@@ -7,7 +7,7 @@ from .models import Items, Discounts
 import datetime
 
 RESET = False
-TAX_RATE = 0.13
+TAX_RATE = 0.130
 
 def front(request):
     context = {}
